@@ -5,6 +5,7 @@ const express = require( 'express' ),
   app = express(),
   testController = require( './controllers/testController' ),
   errorController = require( './controllers/errorController' );
+  controller = require( './controllers/controller' ),
 
 app.use(
     express.urlencoded({
