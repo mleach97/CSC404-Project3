@@ -2289,7 +2289,6 @@ exports.showTestCases =   ( req, res ) => {
   res.render( 'displayTests', {
     allTestCases: testCases
   } );
-  console.log(testCases.length);
 };
 
 exports.showTCForm = ( req, res ) => {
