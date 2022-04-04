@@ -4,6 +4,9 @@ exports.computeHW = function (HW1, HW2, HW3){
     None of them can be over 100 or the program will return
     a null value or negative value. They also can't be in 
     the negatives*/
+    HW1 = parseInt(HW1);
+    HW2 = parseInt(HW2);
+    HW3 = parseInt(HW3);
 
     if(HW1 > 100 || HW2 > 100 || HW3 > 100){//Upper range
         return -1;
@@ -13,7 +16,7 @@ exports.computeHW = function (HW1, HW2, HW3){
         return -1;
     }
 
-    var finalHWGrade = (((HW1 + HW2 + HW3)/3)*0.2);
+    const finalHWGrade = (((HW1 + HW2 + HW3)/3)*0.2);
 
     return finalHWGrade;
 }
@@ -23,6 +26,8 @@ exports.computeExams = function(exam1, exam2){
     /*Neither of them can be over 100 or the program will return
     a null value or negative value. They also can't be in 
     the negatives*/
+    exam1 = parseInt(exam1);
+    exam2 = parseInt(exam2);
 
     if(exam1 > 100 || exam2 > 100){//Upper range
         return -1;

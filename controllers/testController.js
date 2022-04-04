@@ -2,7 +2,7 @@
 
 const { computeHW, computeExams, getFinalGrade, getFinalLetterGrade } = require("./controller");
 
-const testCases = [];
+let testCases = [];
 
 exports.showTestCases =   ( req, res ) => {
   res.render( 'displayTests', {
@@ -14,28 +14,26 @@ exports.showTCForm = ( req, res ) => {
   res.render( 'addTest' );
 };
 
-exports.addTestCase = () => {
+exports.addTestCase = ( req, res ) => {
   var tc = {
-    hw1: document.getElementById("hw1"),
-    hw2: document.getElementById("hw2"),
-    hw3: document.getElementById("hw3"),
-    exam1: document.getElementById("exam1"),
-    exam2: document.getElementById("exam2"),
+    hw1: req.body.hw1,
+    hw2: req.body.hw2,
+    hw3: req.body.hw3,
+    exam1: req.body.exam1,
+    exam2: req.body.exam2,
     hwGrade: function () {
-      return computeHW(this.hw1, this.hw2, this.hw3)
+      return computeHW(tc.hw1, tc.hw2, tc.hw3)
     },
     examGrade: function () {
-      return computeExams(this.exam1, this.exam2)
+      return computeExams(tc.exam1, tc.exam2)
     },
     finalGrade: function () {
-      return getFinalGrade(this.hwGrade(), this.examGrade())
+      return getFinalGrade(tc.hwGrade(), tc.examGrade())
     },
     letterGrade: function () {
-      return getFinalLetterGrade(this.finalGrade())
+      return getFinalLetterGrade(tc.finalGrade())
     }
   };
-
   testCases.push(tc);
-  document.getElementById("demo").innerHTML = testCases;
-  console.log(typeof(tc));
+  res.render( 'addTest' );
 }

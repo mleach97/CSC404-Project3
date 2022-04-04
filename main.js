@@ -5,7 +5,6 @@ const express = require( 'express' ),
   app = express(),
   testController = require( './controllers/testController' ),
   errorController = require( './controllers/errorController' );
-  controller = require( './controllers/controller' ),
 
 app.use(
     express.urlencoded({
@@ -25,7 +24,7 @@ app.get( '/', function( req, res )  {
 
 app.get( '/displayTests', testController.showTestCases );
 app.get( '/addTest', testController.showTCForm );
-app.post( '/addTest', testController.showTCForm );
+app.post( '/addTest', testController.addTestCase );
 
 app.use( errorController.pageNotFoundError );
 app.use( errorController.internalServerError );
