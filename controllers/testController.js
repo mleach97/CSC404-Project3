@@ -1049,6 +1049,25 @@ let testCases = [
     }
   },
   {
+    hw1: 10,
+    hw2: 40,
+    hw3: 40,
+    exam1: 10,
+    exam2: 50,
+    hwGrade: function () {
+      return computeHW(this.hw1, this.hw2, this.hw3)
+    },
+    examGrade: function () {
+      return computeExams(this.exam1, this.exam2)
+    },
+    finalGrade: function () {
+      return getFinalGrade(this.hwGrade(), this.examGrade())
+    },
+    letterGrade: function () {
+      return getFinalLetterGrade(this.finalGrade())
+    }
+  },
+  {
     hw1: 20,
     hw2: 40,
     hw3: 40,
@@ -2270,6 +2289,7 @@ exports.showTestCases =   ( req, res ) => {
   res.render( 'displayTests', {
     allTestCases: testCases
   } );
+  console.log(testCases.length);
 };
 
 exports.showTCForm = ( req, res ) => {
