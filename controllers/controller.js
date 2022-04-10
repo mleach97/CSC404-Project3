@@ -16,7 +16,7 @@ exports.computeHW = function (HW1, HW2, HW3){
         return -1;
     }
 
-    const finalHWGrade = (((HW1 + HW2 + HW3)/3)*0.2);
+    const finalHWGrade = Math.round((((HW1 + HW2 + HW3)/3)*0.2) * 1000) / 1000;
 
     return finalHWGrade;
 }
