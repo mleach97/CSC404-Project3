@@ -2291,6 +2291,8 @@ exports.showTestCases =   ( req, res ) => {
   } );
 };
 
+exports.grades = testCases;
+
 exports.showTCForm = ( req, res ) => {
   res.render( 'addTest' );
 };
@@ -2315,6 +2317,7 @@ exports.addTestCase = ( req, res ) => {
       return getFinalLetterGrade(tc.finalGrade())
     }
   };
+
   testCases.push(tc);
   res.render( 'addTest' );
 }
