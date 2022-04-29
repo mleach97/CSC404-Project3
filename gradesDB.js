@@ -2,12 +2,12 @@ const { grades } = require( './controllers/testController' );
 const { computeHW, computeExams, getFinalGrade, getFinalLetterGrade } = require("./controllers/controller");
 
 const mongoose = require( 'mongoose' ),
-  Test = require( './models/test' );
+  Grade = require( './models/grade' );
 
   mongoose.connect( 'mongodb://localhost/grades' );
 mongoose.connection;
 
-Test.remove( {} )
+Grade.remove( {} )
   .exec()
   .then( () => {
     console.log( 'Test data is empty!' );
@@ -16,14 +16,14 @@ Test.remove( {} )
 var commands = [];
 
 grades.forEach( ( c ) => {
-    commands.push( Test.create( {
-      HW1: c.hw1,
-      HW2: c.hw2,
-      HW3: c.hw3,
-      Exam1: c.exam1,
-      Exam2: c.exam2,
-      FinalGrade: getFinalGrade(computeHW(c.hw1, c.hw2, c.hw3), computeExams(c.exam1, c.exam2)),
-      FinalLetterGrade: getFinalLetterGrade(getFinalGrade(computeHW(c.hw1, c.hw2, c.hw3), computeExams(c.exam1, c.exam2)))
+    commands.push( Grade.create( {
+      hw1: c.hw1,
+      hw2: c.hw2,
+      hw3: c.hw3,
+      exam1: c.exam1,
+      exam2: c.exam2,
+      finalGrade: getFinalGrade(computeHW(c.hw1, c.hw2, c.hw3), computeExams(c.exam1, c.exam2)),
+      letterGrade: getFinalLetterGrade(getFinalGrade(computeHW(c.hw1, c.hw2, c.hw3), computeExams(c.exam1, c.exam2)))
     } ) );
   } );
 
