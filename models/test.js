@@ -12,4 +12,4 @@ var testSchema = mongoose.Schema( {
   FinalLetterGrade: String 
 } );
 
-module.exports = mongoose.model( 'Test', testSchema );
+module.exports = mongoose.model( 'Grade', testSchema );
