@@ -27,6 +27,7 @@ grades.forEach( ( c ) => {
       hw3: c.hw3,
       exam1: c.exam1,
       exam2: c.exam2,
+      finalGrade: c.exam1,
       finalGrade: getFinalGrade(computeHW(c.hw1, c.hw2, c.hw3), computeExams(c.exam1, c.exam2)),
       letterGrade: getFinalLetterGrade(getFinalGrade(computeHW(c.hw1, c.hw2, c.hw3), computeExams(c.exam1, c.exam2)))
     } ) );

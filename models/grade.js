@@ -3,13 +3,13 @@
 const mongoose = require( 'mongoose' );
 
 var testSchema = mongoose.Schema( {
-  hw1: Number,
-  hw2: Number,
-  hw3: Number,
-  exam1: Number,
-  exam2: Number,
-  finalGrade: Number,
-  letterGrade: String 
+  hw1: {type: Number, default: -1},
+  hw2: {type: Number, default: -1},
+  hw3: {type: Number, default: -1},
+  exam1: {type: Number, default: -1},
+  exam2: {type: Number, default: -1},
+  finalGrade: {type: Number, default: -1},
+  letterGrade: String
 } );
 
 module.exports = mongoose.model( 'Grade', testSchema );
