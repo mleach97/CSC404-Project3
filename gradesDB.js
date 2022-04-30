@@ -3,9 +3,14 @@ const { computeHW, computeExams, getFinalGrade, getFinalLetterGrade } = require(
 
 const mongoose = require( 'mongoose' ),
   Grade = require( './models/grade' );
+  mongoose.Promise = global.Promise;
 
   mongoose.connect( 'mongodb://localhost/grades' );
-mongoose.connection;
+const db = mongoose.connection;
+
+db.once( 'open', () => {
+  console.log( 'Successfully connected to MongoDB using Mongoose!' );
+} );
 
 Grade.remove( {} )
   .exec()
