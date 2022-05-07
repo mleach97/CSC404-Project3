@@ -5,9 +5,6 @@ exports.computeHW = function (HW1, HW2, HW3){
     a null value or negative value. They also can't be in 
     the negatives*/
 
-    if (typeof(hw1) !== 'number' || typeof(hw2) !== 'number' || typeof(hw3) !== 'number') {
-        return -1
-    }
 
     HW1 = parseInt(HW1);
     HW2 = parseInt(HW2);
@@ -31,9 +28,6 @@ exports.computeExams = function(exam1, exam2){
     /*Neither of them can be over 100 or the program will return
     a null value or negative value. They also can't be in 
     the negatives*/
-    if (typeof(exam1) !== 'number' || typeof(exam2) !== 'number') {
-        return -1
-    }
 
     exam1 = parseInt(exam1);
     exam2 = parseInt(exam2);
